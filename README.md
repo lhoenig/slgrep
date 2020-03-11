@@ -60,7 +60,7 @@ optional arguments:
 ### Filtering by runtime
 
 Runtime filtering is pretty useful I think, as this is sometimes the only clear discriminator of some group of jobs versus another.
-For example, the following command will display the executing user's jobs with a runtime of less than 5 minutes:
+For example, the following command will display the executing user's jobs with a runtime <= 5 minutes:
 
 `sgrep -Ut -5`
 
