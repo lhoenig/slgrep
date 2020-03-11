@@ -1,7 +1,7 @@
 # sgrep
 could be described as "pgrep for Slurm"
 
-Slurms `squeue` command is useful, but lacks some features I always missed, for example simply searching jobs by name.
+Slurm's `squeue` command is useful, but lacks some features I always missed, for example simply searching jobs by name.
 That's why I wrote this little script. It is similar to `pgrep` in the sense that it outputs the Slurm job IDs of matching jobs line by line, by default. 
 It is also capable of outputting any number of fields of a Slurm job by supplying a format string.
 
