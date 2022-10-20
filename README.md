@@ -1,5 +1,5 @@
 # sgrep
-could be described as "pgrep for Slurm"
+A pgrep-style job filter tool for Slurm.
 
 Slurm's `squeue` command is useful, but lacks some features I always missed, for example simply searching jobs by name.
 That's why I wrote this little script. It is similar to `pgrep` in the sense that it outputs the Slurm job IDs of matching jobs line by line, by default. 
@@ -74,7 +74,7 @@ This will move all jobs of the executing user pending on partition c0 to partiti
 
 ### Canceling jobs
 
-Cancel all jobs on partition c0 matching the regex "^long_job_no_\d+$":
+Cancel all jobs on partition c0 matching the regex `^long_job_no_\d+$`:
 
 `sgrep -p c0 "^long_job_no_\d+$" | xargs scancel`
 
