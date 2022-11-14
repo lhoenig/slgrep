@@ -1,4 +1,4 @@
-# sgrep
+# slgrep
 A pgrep-style job filter tool for Slurm.
 
 Slurm's `squeue` command is useful, but lacks some features I always missed, for example simply searching jobs by name.
@@ -22,9 +22,9 @@ and any combination of the above.
 ## Usage
 
 ```
-usage: sgrep [-h] [-u USER] [-U] [-p PARTITION] [-t RUNTIME] [-r] [-w] [-l]
-             [-c] [-f FORMAT] [-A]
-             [expr]
+usage: s;grep [-h] [-u USER] [-U] [-p PARTITION] [-t RUNTIME] [-r] [-w] [-l]
+              [-c] [-f FORMAT] [-A]
+              [expr]
 
 like pgrep, but for slurm jobs. without any arguments, prints job IDs of all
 running or queued jobs of all users
@@ -62,13 +62,13 @@ optional arguments:
 Runtime filtering is pretty useful I think, as this is sometimes the only clear discriminator of some group of jobs versus another.
 For example, the following command will display the executing user's jobs with a runtime <= 5 minutes:
 
-`sgrep -Ut -5`
+`slgrep -Ut -5`
 
 ### Changing partitions
 
 Another usecase is further processing of the output using `xargs`. For example, I often use this to change the partitions of submitted jobs:
 
-`sgrep -Uwp c0 | xargs -I {} scontrol update jobid={} partition=c1`
+`slgrep -Uwp c0 | xargs -I {} scontrol update jobid={} partition=c1`
 
 This will move all jobs of the executing user pending on partition c0 to partition c1.
 
@@ -76,7 +76,7 @@ This will move all jobs of the executing user pending on partition c0 to partiti
 
 Cancel all jobs on partition c0 matching the regex `^long_job_no_\d+$`:
 
-`sgrep -p c0 "^long_job_no_\d+$" | xargs scancel`
+`slgrep -p c0 "^long_job_no_\d+$" | xargs scancel`
 
-I suggest you play around with the options. You will discover your personal favourites. 
+I suggest you play around with the options. You will discover your personal favourites.
 For example, you could build a custom output format as your personal replacement for `squeue`.
