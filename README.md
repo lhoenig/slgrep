@@ -22,7 +22,7 @@ and any combination of the above.
 ## Usage
 
 ```
-usage: s;grep [-h] [-u USER] [-U] [-p PARTITION] [-t RUNTIME] [-r] [-w] [-l]
+usage: slgrep [-h] [-u USER] [-U] [-p PARTITION] [-t RUNTIME] [-r] [-w] [-l]
               [-c] [-f FORMAT] [-A]
               [expr]
 
